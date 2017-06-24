@@ -9,7 +9,7 @@
     firebase.initializeApp(config);
       // FirebaseUI config.
       var uiConfig = {
-        signInSuccessUrl: '//davesrose.github.io/Food_Paradise/',
+        signInSuccessUrl: '//gtbmed.github.io/authtest/page2.html',
         signInOptions: [
           // Leave the lines as is for the providers you want to offer your users.
           firebase.auth.GoogleAuthProvider.PROVIDER_ID,
