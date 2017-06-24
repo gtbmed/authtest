@@ -1,12 +1,12 @@
-    var config = {
-      apiKey: "AIzaSyDi2g588bcWLXFwdCjviNcxOLMGQapxjbU",
-      authDomain: "food-paradise-8ef13.firebaseapp.com",
-      databaseURL: "https://food-paradise-8ef13.firebaseio.com",
-      projectId: "food-paradise-8ef13",
-      storageBucket: "food-paradise-8ef13.appspot.com",
-      messagingSenderId: "698241980106"
-    };
-    firebase.initializeApp(config);
+  var config = {
+    apiKey: "AIzaSyB02ri4PZSuQmOv_Z9IDn0HTLs4xsLPY6Q",
+    authDomain: "authentication-testing-231da.firebaseapp.com",
+    databaseURL: "https://authentication-testing-231da.firebaseio.com",
+    projectId: "authentication-testing-231da",
+    storageBucket: "authentication-testing-231da.appspot.com",
+    messagingSenderId: "686766866707"
+  };
+  firebase.initializeApp(config);
       // FirebaseUI config.
       var uiConfig = {
         signInSuccessUrl: '//gtbmed.github.io/authtest/page2.html',
