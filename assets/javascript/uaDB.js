@@ -16,6 +16,7 @@
             // or whether we leave that to developer to handle.
             return true;
           }
+        }
         signInSuccessUrl: '//gtbmed.github.io/authtest/page2.html',
         signInOptions: [
           // Leave the lines as is for the providers you want to offer your users.
