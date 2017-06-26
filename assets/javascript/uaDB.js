@@ -9,6 +9,13 @@
   firebase.initializeApp(config);
       // FirebaseUI config.
       var uiConfig = {
+        callbacks: {
+          signInSuccess: function(currentUser, credential, redirectUrl) {
+            // Do something.
+            // Return type determines whether we continue the redirect automatically
+            // or whether we leave that to developer to handle.
+            return true;
+          }
         signInSuccessUrl: '//gtbmed.github.io/authtest/page2.html',
         signInOptions: [
           // Leave the lines as is for the providers you want to offer your users.
@@ -23,9 +30,17 @@
       // The start method will wait until the DOM is loaded.
       ui.start('#firebaseui-auth-container', uiConfig);
 
-      var auth = firebase.auth();
-      console.log(auth);
+var user = firebase.auth().currentUser;
 
+if (user != null) {
+  user.providerData.forEach(function (profile) {
+    console.log("Sign-in provider: "+profile.providerId);
+    console.log("  Provider-specific UID: "+profile.uid);
+    console.log("  Name: "+profile.displayName);
+    console.log("  Email: "+profile.email);
+    console.log("  Photo URL: "+profile.photoURL);
+  });
+}
 
 
 // var database = firebase.database();
