@@ -51,3 +51,29 @@ if (user != null) {
 //           name: getName(authData)
 //           //some more user data
 //             });
+
+
+// Firebase Functions trigger events on UA
+// functions.auth.user().onCreate
+// functions.auth.user().onDelete
+// event.data
+//
+// const funcitons = require('firebase-functions')
+// const admin = reqiore('firebase-admin')
+// admin.initilizeApp(functions.config().firebase)  //initialize admin sdk
+// const ref = admin.database.ref() // create reference to root of the db
+// exports.createUserAccount = function.auth.user().onCreate(event => { // createUserAccount is function name created by dev
+    // const uid = event.data.uid
+    // const email = event.data.email
+    // const newUserRef = ref.child('/users/${uid}') //creates reference to users/uid
+    // return newUserRef.set ({
+    //   uid: uid,
+    //   email: email
+    //   })
+// })
+
+// exports.cleanupUserData = functions.auth.user().onDelete(event =>{ // createUserAccount is function name created by dev
+    // const uid = event.data.uid //get user uid
+    // const userRef = ref.child('/users/${uid}')
+    // return userRef.update({isDeleted: true}) // adds boolean object "isDeleted"
+// }) 
