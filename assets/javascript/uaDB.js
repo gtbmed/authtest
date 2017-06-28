@@ -31,6 +31,14 @@
       // The start method will wait until the DOM is loaded.
       ui.start('#firebaseui-auth-container', uiConfig);
 
+
+  firebase.auth.onAuthStateChanged(firebaseUser => {
+    if (firebaseUser) {
+      btnLogout.classList.remove('hide');
+    } else {
+      btnLogout.classList.add('hide');
+    }
+  });
 var user = firebase.auth().currentUser;
 
 if (user != null) {
@@ -58,22 +66,20 @@ if (user != null) {
 // functions.auth.user().onDelete
 // event.data
 //
-// const funcitons = require('firebase-functions')
-// const admin = reqiore('firebase-admin')
+// const functions = require('firebase-functions')
+// const admin = require('firebase-admin')
 // admin.initilizeApp(functions.config().firebase)  //initialize admin sdk
-// const ref = admin.database.ref() // create reference to root of the db
-// exports.createUserAccount = function.auth.user().onCreate(event => { // createUserAccount is function name created by dev
-    // const uid = event.data.uid
-    // const email = event.data.email
-    // const newUserRef = ref.child('/users/${uid}') //creates reference to users/uid
-    // return newUserRef.set ({
-    //   uid: uid,
-    //   email: email
-    //   })
-// })
+const ref = database.ref(); // create reference to root of the db
+exports.createUserAccount = function.auth.user().onCreate(event => { // createUserAccount is function name created by dev
+    const uid = event.data.uid
+    const newUserRef = ref.child('/users/${uid}') //creates reference to users/uid
+    return newUserRef.set ({
+      uid: uid,
+      })
+})
 
 // exports.cleanupUserData = functions.auth.user().onDelete(event =>{ // createUserAccount is function name created by dev
-    // const uid = event.data.uid //get user uid
-    // const userRef = ref.child('/users/${uid}')
-    // return userRef.update({isDeleted: true}) // adds boolean object "isDeleted"
+//     const uid = event.data.uid //get user uid
+//     const userRef = ref.child('/users/${uid}')
+//     return userRef.update({isDeleted: true}) // adds boolean object "isDeleted"
 // }) 
