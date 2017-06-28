@@ -32,13 +32,13 @@
       ui.start('#firebaseui-auth-container', uiConfig);
 
 
-  firebase.auth.onAuthStateChanged(firebaseUser => {
-    if (firebaseUser) {
-      btnLogout.classList.remove('hide');
-    } else {
-      btnLogout.classList.add('hide');
-    }
-  });
+  // firebase.auth.onAuthStateChanged(firebaseUser => {
+  //   if (firebaseUser) {
+  //     btnLogout.classList.remove('hide');
+  //   } else {
+  //     btnLogout.classList.add('hide');
+  //   }
+  // });
 var user = firebase.auth().currentUser;
 
 if (user != null) {
