@@ -8,18 +8,59 @@
   };
   firebase.initializeApp(config);
 
-var user = firebase.auth().currentUser;
-auth.signInWithEmailAndPassword(email, pass);
-auth.createUserWithEmailAndPassword(email, pass);
+//Get Login Elements
+const signInEmail = document.getElementById('signInEmail');
+const signInPassword = document.getElementById('signInPassword');
+const btnLogin = document.getElementById('btnLogin');
+const btnSignUp = document.getElementById('btnSignUp');
+const btnLogOut = document.getElementById('btnLogOut');
 
 
-var database = firebase.database();
-function storeRecipe()
+btnLogin.addEventListener('click', e => {
+    //Get credentials from inputs
+    const email = signInEmail.value;
+    const pass = signInPassword.value;
+    const auth = firebase.auth();
+    //Sign the user into firebase
+    auth.signInWithEmailAndPassword(email, pass);
+    promise.catch(e => console.log(e.message));
+});
+
+btnLogin.addEventListener('click', e => {
+    //Get credentials from inputs
+    const email = signInEmail.value;
+    const pass = signInPassword.value;
+    const auth = firebase.auth();
+    //Sign the user into firebase
+    auth.createUserWithEmailAndPassword(email, pass);
+    promise.catch(e => console.log(e.message));
+});
+
+
+btnLogOut.addEventListener('click', e => {
+    firebase.auth().signOut();
+});
+
+
 firebase.auth.onAuthStateChanged(firebaseUser => {
+  if (firebaseUser) {
+    btnLogOut.classList.remove('hide');
+  } else {
+    btnLogOut.classList.add('hide');
+  }
+});
 
-if (firebaseUser != null) {
+// var user = firebase.auth().currentUser;
 
-}
+// var database = firebase.database();
+// function storeRecipe()
+// firebase.auth.onAuthStateChanged(firebaseUser => {
+
+// if (firebaseUser != null) {
+
+// }
+
+
 
 // if (user != null) {
 //   user.providerData.forEach(function (profile) {
@@ -55,13 +96,7 @@ if (firebaseUser != null) {
       // ui.start('#firebaseui-auth-container', uiConfig);
 
 
-  // firebase.auth.onAuthStateChanged(firebaseUser => {
-  //   if (firebaseUser) {
-  //     btnLogout.classList.remove('hide');
-  //   } else {
-  //     btnLogout.classList.add('hide');
-  //   }
-  // });
+
 
 
 //         ref.child("users").child(authData.uid).set({
